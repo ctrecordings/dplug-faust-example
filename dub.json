@@ -1,0 +1,56 @@
+{
+    "name": "dplug-faust-example",
+
+    "license": "MIT",
+    "importPaths": [ "." ],
+    "sourcePaths": [ "." ],
+    "stringImportPaths": ["gfx", "."],
+
+    "copyright": "none",
+
+    "dflags-linux-dmd": ["-defaultlib=libphobos2.a"],
+    "dflags-osx-ldc": ["-static"],
+    "dflags-linux-ldc": ["-link-defaultlib-shared=false"],
+    "dflags-linux-x86_64-ldc": ["-fvisibility=hidden"],
+    "dflags-windows-ldc": ["-mscrtlib=libcmt","-fvisibility=hidden", "-link-defaultlib-shared=false"],
+
+    "dependencies":
+    {
+        "dplug": ">=13.0.0 <14.0.0"
+    },
+
+    "versions": ["futureMouseDrag", "faustoverride"],
+
+    "configurations": [
+        {
+            "name": "VST3",
+            "versions": ["VST3"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "$PACKAGE_DIR/module-vst3.lst", "-dead_strip" ],
+            "lflags-linux-ldc": [ "--version-script=$PACKAGE_DIR/module-vst3.ver" ]
+        },
+        {
+            "name": "VST2",
+            "versions": ["VST2"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "$PACKAGE_DIR/module-vst2.lst", "-dead_strip" ],
+            "lflags-linux-ldc": [ "--version-script=$PACKAGE_DIR/module-vst2.ver" ]
+        },
+        {
+            "name": "AU",
+            "versions": ["AU"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "$PACKAGE_DIR/module-au.lst", "-dead_strip" ]
+        },
+        {
+            "name": "LV2",
+            "versions": ["LV2"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "$PACKAGE_DIR/module-lv2.lst", "-dead_strip" ],
+            "lflags-linux-ldc": [ "--version-script=$PACKAGE_DIR/module-lv2.ver" ]
+        }
+    ],
+    "preBuildCommands": [
+        "faust dsp/freeverb.dsp -lang dlang -a dplug.d -cn Freeverb -vec -o src/freeverb.d"
+    ]
+}

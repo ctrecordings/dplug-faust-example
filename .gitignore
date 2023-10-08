@@ -1,0 +1,11 @@
+.dub
+docs.json
+__dummy.html
+docs/
+*.so
+*.dll
+*.exe
+*.o
+*.obj
+builds/
+src/freeverb.d

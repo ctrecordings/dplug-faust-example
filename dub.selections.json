@@ -1,0 +1,9 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"dplug": "13.7.10",
+		"gamut": "2.2.2",
+		"intel-intrinsics": "1.11.15",
+		"wren-port": "1.2.1"
+	}
+}

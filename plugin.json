@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/AuburnSounds/dplug/master/plugin-schema.json",
+    "vendorName": "Cut Through Recordings",
+    "vendorUniqueID": "CTRe",
+    "vendorSupportEmail": "",
+    "pluginName": "Dplug Faust Example",
+    "pluginHomepage": "http://cutthroughrecordings.com",
+    "pluginUniqueID": "DFaE",
+    "publicVersion": "1.0.0",
+    "CFBundleIdentifierPrefix": "com.cutthroughrecordings",
+    "hasGUI": true,
+    "category": "effectReverb"
+}
